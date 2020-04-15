@@ -1,0 +1,1 @@
+<li> <span class="iconfont"> &#xe606; </span> <a href="view.php?aid=[field:id/]" title="[field:title/]">[field:title/]</a> </li>

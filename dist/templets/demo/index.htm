@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="Www.AdminBuy.Cn" />
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_page.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_form.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_vip.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_msg.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_cart.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_atm.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/master.css" />
+<link rel="stylesheet" href="/style/css/style.min.css">
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/index.php">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/index.php";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<style>
+.dowebok { width: 100%; height: 398px; margin: 0 auto;}
+</style>
+<script type="text/javascript" src="/style/js/jquery.js"></script>
+<script src="/style/js/jquery.slidizle.js"></script>
+<script>
+$(function() {
+	$('.dowebok').slidizle({
+		loop: true,
+		autoPlay: true,
+		timeout: 3000
+	});
+});
+</script>
+<script type="text/javascript" src="/style/js/nav.js"></script>
+
+
+<!--[if IE 6]>
+<script type="text/javascript" src="/style/js/png.js"></script>
+<script>DD_belatedPNG.fix('div,img,span,li,a,a:hover,dd,p,input,select')</script>
+<![endif]-->
+</head>
+
+<body>
+{dede:include filename="head.htm"/}
+<div class="banner"> 
+<div class="dowebok" data-slidizle>
+    <ul data-slidizle-content>
+        {dede:arclist row='2' titlelen='36' typeid='11'}
+        <li style="background-image: url('[field:litpic/]')"></li>
+        {/dede:arclist}
+    </ul>
+    <ul data-slidizle-navigation></ul>
+</div>
+</div>
+
+<div class="marquee-bg">
+  <div class="marquee">
+    <div class="mar-left">
+      <p>公告：</p>
+      <marquee scrollamount="3">
+      {dede:global.cfg_gg/}
+      </marquee>
+    </div>
+    <div class="search">
+     <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+     <input type="hidden" name="kwtype" value="0" />
+        <input type="text" class="text pngFix" name="q" value="请输入关键词" id="search-keyword" onfocus="this.value=''" onblur="if(!value){value=defaultValue}"  />
+        <input type="submit" title="搜索" class="btn pngFix" value=""/>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="con1-bg">
+  <div class="con1-title">{dede:type typeid='3'}[field:typename /]{/dede:type}</div>
+  <div class="con1-class"> 
+  {dede:channel type='son' typeid='3'}
+    <a href="[field:typeurl/]" title="[field:typename/]">[field:typename/]</a>
+    {/dede:channel}
+   </div>
+  <div class="movead"> <a onMouseUp="ISL_StopUp_1()" class="LeftBotton" onMouseDown="ISL_GoUp_1()" onMouseOut="ISL_StopUp_1()" href="javascript:void(0);"></a>
+    <div class=pcont id=ISL_Cont_1>
+      <div class=ScrCont>
+        <div id=List1_1>
+          {dede:arclist row='10' titlelen='36' typeid='3'}
+          <div class="pl">
+            <div class="con1_img"> <a href="[field:arcurl/]" title="[field:title/]"> <img src="[field:litpic/]" width="237" height="178" alt="[field:title/]"/> </a> 
+              <p><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+            </div>
+          </div>
+         {/dede:arclist}   
+        </div>
+        <div id=List2_1></div>
+      </div>
+    </div>
+    <a onMouseUp="ISL_StopDown_1()" class="RightBotton" onMouseDown="ISL_GoDown_1()" onMouseOut="ISL_StopDown_1()" href="javascript:void(0);"></a> </div>
+  <script type=text/javascript>
+
+        <!--
+
+        picrun_ini()
+
+        //-->
+
+    </script>
+  <div class="con1-more">{dede:type typeid='3'} <a href="[field:typelink /]" title="查看更多">查看更多</a> {/dede:type}</div>
+</div>
+<div class="con2-bg">
+  <div class="con2">
+    <div class="con2-title">{dede:type typeid='1'}[field:typename /]{/dede:type}</div>
+    <div class="iabout"> {dede:sql sql="select content from dede_arctype where id=1"}[field:content function=cn_substr(Html2Text(@me),550)/]{/dede:sql}{dede:type typeid='1'}... <a href="[field:typelink /]" title="查看更多">【查看更多】</a> {/dede:type}</div>
+    <div class="con2-news">
+      <h1>最新动态</h1>
+      <ul>
+        {dede:arclist row='4' titlelen='36' typeid='2'}
+        <li class="news-li[field:global name=autoindex runphp="yes"]@me=@me;[/field:global]">
+          <p><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+          <div>[field:description function='cn_substr(@me,150)'/]...</div>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="links-bg">
+  <div class="links"> <span>友情链接：</span> 
+  {dede:flink row='24'}[field:link /]<span>|</span>{/dede:flink}
+  </div>
+</div>
+
+{dede:include filename="foot.htm"/}
+
+
+</body>
+</html>

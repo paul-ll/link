@@ -1,12 +1,12 @@
 <?php
-$cfg_basehost = 'http://127.0.0.39';
+$cfg_basehost = 'http://127.0.0.5';
 $cfg_cmspath = '';
-$cfg_cookie_encode = 'RgPGcflGVV61mXbU83A9uHUiKwoMQe2o';
+$cfg_cookie_encode = 'IBQCUk0UgWQSpxyc1gknPFrQKmQwB';
 $cfg_indexurl = '/';
 $cfg_backup_dir = 'backupdata';
 $cfg_indexname = '主页';
 $cfg_webname = '我的网站';
-$cfg_adminemail = 'admin@dedecms.com';
+$cfg_adminemail = 'admin@admin.com';
 $cfg_html_editor = 'ckeditor';
 $cfg_arcdir = '/a';
 $cfg_medias_dir = '/uploads';

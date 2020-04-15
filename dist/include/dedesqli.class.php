@@ -26,9 +26,6 @@ $dsql = $dsqli = $db = new DedeSqli(FALSE);
  * @subpackage     DedeCMS.Libraries
  * @link           http://www.dedecms.com
  */
-if (!defined('MYSQL_BOTH')) {
-     define('MYSQL_BOTH',MYSQLI_BOTH);
-}
 class DedeSqli
 {
     var $linkID;
@@ -113,7 +110,7 @@ class DedeSqli
             $i = 0;
             @list($dbhost, $dbport) = explode(':', $this->dbHost);
             !$dbport && $dbport = 3306;
-
+            
             $this->linkID = mysqli_init();
             mysqli_real_connect($this->linkID, $dbhost, $this->dbUser, $this->dbPwd, false, $dbport);
             mysqli_errno($this->linkID) != 0 && $this->DisplayError('DedeCms错误警告： 链接('.$this->pconnect.') 到MySQL发生错误');
@@ -131,7 +128,7 @@ class DedeSqli
         }
 		$this->isInit = TRUE;
         $serverinfo = mysqli_get_server_info($this->linkID);
-        if ($serverinfo > '4.1' && $GLOBALS['cfg_db_language'])
+        if ($serverinfo > '4.1' && $GLOBALS['cfg_db_language']) 
         {
             mysqli_query($this->linkID, "SET character_set_connection=" . $GLOBALS['cfg_db_language'] . ",character_set_results=" . $GLOBALS['cfg_db_language'] . ",character_set_client=binary");
         }
@@ -143,7 +140,7 @@ class DedeSqli
         }
         return TRUE;
     }
-
+    
     //为了防止采集等需要较长运行时间的程序超时，在运行这类程序时设置系统等待和交互时间
     function SetLongLink()
     {
@@ -153,7 +150,7 @@ class DedeSqli
     //获得错误描述
     function GetError()
     {
-        $str = mysqli_error($this->linkID);
+        $str = mysql_error();
         return $str;
     }
 
@@ -181,10 +178,10 @@ class DedeSqli
     {
         @mysqli_close($dblink);
     }
-
-    function Esc( $_str )
+    
+    function Esc( $_str ) 
     {
-        if ( version_compare( phpversion(), '4.3.0', '>=' ) )
+        if ( version_compare( phpversion(), '4.3.0', '>=' ) ) 
         {
             return @mysqli_real_escape_string($this->linkID, $_str );
         } else {
@@ -220,15 +217,15 @@ class DedeSqli
         }
         //SQL语句安全检查
         if($this->safeCheck) CheckSql($this->queryString,'update');
-
+        
         $t1 = ExecTime();
         $rs = mysqli_query($this->linkID, $this->queryString);
-
+       
         //查询性能测试
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
-            //echo $this->queryString."--{$queryTime}<hr />\r\n";
+            //echo $this->queryString."--{$queryTime}<hr />\r\n"; 
         }
         return $rs;
     }
@@ -261,14 +258,14 @@ class DedeSqli
         }
         $t1 = ExecTime();
         mysqli_query($this->linkID, $this->queryString);
-
+        
         //查询性能测试
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
-            //echo $this->queryString."--{$queryTime}<hr />\r\n";
+            //echo $this->queryString."--{$queryTime}<hr />\r\n"; 
         }
-
+        
         return mysqli_affected_rows($this->linkID);
     }
 
@@ -276,12 +273,12 @@ class DedeSqli
     {
         return $this->ExecuteNoneQuery($sql);
     }
-
+    
     function GetFetchRow($id='me')
     {
         return @mysqli_fetch_row($this->result[$id]);
     }
-
+    
     function GetAffectedRows()
     {
         return mysqli_affected_rows($this->linkID);
@@ -309,19 +306,19 @@ class DedeSqli
         {
             CheckSql($this->queryString);
         }
-
+    
         $t1 = ExecTime();
         //var_dump($this->queryString);
         $this->result[$id] = mysqli_query($this->linkID, $this->queryString);
 		//var_dump(mysql_error());
-
+        
         //查询性能测试
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
-            //echo $this->queryString."--{$queryTime}<hr />\r\n";
+            //echo $this->queryString."--{$queryTime}<hr />\r\n"; 
         }
-
+        
         if($this->result[$id]===FALSE)
         {
             $this->DisplayError(mysqli_error($this->linkID)." <br />Error sql: <font color='red'>".$this->queryString."</font>");
@@ -524,7 +521,7 @@ class DedeSqli
     {
         $this->SetQuery($sql);
     }
-
+    
 	function RecordLog($runtime=0)
 	{
 		$RecordLogFile = dirname(__FILE__).'/../data/mysqli_record_log.inc';
@@ -534,7 +531,7 @@ class DedeSqli
 ------------------------------------------
 SQL:{$this->queryString}
 Page:$url
-Runtime:$runtime
+Runtime:$runtime	
 EOT;
         $fp = @fopen($RecordLogFile, 'a');
         @fwrite($fp, $savemsg);
@@ -558,17 +555,17 @@ EOT;
 			$emsg .= "<div style='color:blue'><br />Error page: <font color='red'>".$this->GetCurUrl()."</font></div>\r\n";
 			$emsg .= "<div>Error infos: {$msg}</div>\r\n";
 			$emsg .= "<br /></div></div>\r\n";
-
+			
 			echo $emsg;
 		}
-
+        
         $savemsg = 'Page: '.$this->GetCurUrl()."\r\nError: ".$msg."\r\nTime".date('Y-m-d H:i:s');
         //保存MySql错误日志
         $fp = @fopen($errorTrackFile, 'a');
         @fwrite($fp, '<'.'?php  exit();'."\r\n/*\r\n{$savemsg}\r\n*/\r\n?".">\r\n");
         @fclose($fp);
     }
-
+    
     //获得当前的脚本网址
     function GetCurUrl()
     {
@@ -589,7 +586,7 @@ EOT;
         }
         return $nowurl;
     }
-
+    
 }
 
 //复制一个对象副本
@@ -654,8 +651,8 @@ if (!function_exists('CheckSql'))
         }
         $clean .= substr($db_string, $old_pos);
         $clean = trim(strtolower(preg_replace(array('~\s+~s' ), array(' '), $clean)));
-
-        if (strpos($clean, '@') !== FALSE  OR strpos($clean,'char(')!== FALSE OR strpos($clean,'"')!== FALSE
+        
+        if (strpos($clean, '@') !== FALSE  OR strpos($clean,'char(')!== FALSE OR strpos($clean,'"')!== FALSE 
         OR strpos($clean,'$s$$s$')!== FALSE)
         {
             $fail = TRUE;
@@ -716,3 +713,4 @@ if (!function_exists('CheckSql'))
         }
     }
 }
+

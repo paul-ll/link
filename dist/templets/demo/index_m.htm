@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="Author" content="www.adminbuy.cn" />
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<link rel="stylesheet" type="text/css" href="/style/m/css/master.css" />
+<link rel="stylesheet" type="text/css" href="/style/m/css/child_vip.css" />
+<script type="text/javascript" src="/style/m/js/jquery.js"></script>
+<script type="text/javascript" src="/style/m/js/nav.js"></script>
+<style>
+.head {
+	background: #3e74ce
+}
+.foot {
+	background: #3e74ce
+}
+.nav {
+	background: #192d4e
+}
+</style>
+</head>
+
+<body>
+{dede:include filename="head_m.htm"/}
+<div class="allpage">
+  <div class="black-fixed iconfont">&#xe609;</div>
+  <div class="header">
+    <div class="head">
+       <a href="/" title="首页" class="home-btn iconfont">&#xe612;</a>
+      <a href="/" title="{dede:global.cfg_webname/}" class="logo"> AB模版网科技有限公司 </a>
+      <div class="nav-btn iconfont">&#xe602;</div>
+      <div class="search">
+      <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+     <<input type="hidden" name="mobile" value="1" />
+		<input type="hidden" name="kwtype" value="0" />
+          <input type="text" name="q" id="search-keyword" placeholder="请输入搜索关键词！" class="search-input"/>
+          <input type="submit" class="search-btn iconfont" value="&#xe60f;"/>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="big-pic big-pic2">
+      <div class="big-pic-in">
+        <div class="pic-list"> 
+        {dede:arclist row='2' titlelen='36' typeid='11'}
+        <a><img src="[field:litpic/]" width="100%" /></a>
+        {/dede:arclist}
+        </div>
+      </div>
+      <div class="slide-dot"> <span class="slide-dot-cur"></span><span ></span> </div>
+      <marquee scrollamount="3">
+      公告：{dede:global.cfg_gg/}
+      </marquee>
+      <div class="ititle1">物资回收</div>
+      <div class="iclass"> </div>
+      <ul class="ipro">
+       {dede:arclist row='4' titlelen='36' typeid='3'}
+        <li> <a href="view.php?aid=[field:id/]" title="[field:title/]"> <img src="[field:litpic/]" alt="[field:title/]"/> <span>[field:title/]</span> </a> </li>
+       {/dede:arclist}
+      </ul>
+      <div class="iabout-box">
+        <div class="iabout-title">{dede:type typeid='1'}<a href="list.php?tid=[field:id/]" title="[field:typename /]">[field:typename /]</a>{/dede:type}</div>
+        <div class="iabout"> {dede:sql sql="select content from dede_arctype where id=1"}[field:content function=cn_substr(Html2Text(@me),300)/]{/dede:sql}...{dede:type typeid='1'}<a href="list.php?tid=[field:id/]" title="查看更多">【查看更多】</a> {/dede:type}</div>
+      </div>
+      <div class="ititle1">最新动态</div>
+      <ul class="inews">
+        {dede:arclist row='4' titlelen='50' typeid='2'}
+        <li> <span class="iconfont"> &#xe606; </span> <a href="view.php?aid=[field:id/]" title="[field:title/]">[field:title/]</a> </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+  {dede:include filename="foot_m.htm"/}
+</div>
+</body>
+</html>

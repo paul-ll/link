@@ -78,7 +78,6 @@ if($dopost!='save')
     }
     $channelid = $arcRow['channel'];
     $tags = GetTags($aid);
-    $arcRow=XSSClean($arcRow);$addRow=XSSClean($addRow);
     include DedeInclude("templets/soft_edit.htm");
     exit();
 }
@@ -316,23 +315,17 @@ else if($dopost=='save')
     }
     ClearMyAddon($id, $title);
     //返回成功信息
-    $msg = "
-    　　请选择你的后续操作：
+    $msg = "成功修改一个软件！<br />
     <a href='soft_add.php?cid=$typeid'><u>发布新软件</u></a>
-    &nbsp;&nbsp;
+    &nbsp;
     <a href='archives_do.php?aid=".$id."&dopost=editArchives'><u>继续修改</u></a>
-    &nbsp;&nbsp;
+    &nbsp;
     <a href='$arcUrl' target='_blank'><u>查看软件</u></a>
-    &nbsp;&nbsp;
+    &nbsp;
     <a href='catalog_do.php?cid=$typeid&dopost=listArchives'><u>已发布软件管理</u></a>
-    &nbsp;&nbsp;
-    <a href='catalog_main.php'><u>网站栏目管理</u></a>
-    ";
-    $wintitle = "成功修改一个软件！";
-    $wecome_info = "文章管理::修改软件";
-    $win = new OxWindow();
-    $win->AddTitle("成功修改软件：");
-    $win->AddMsgItem($msg);
-    $winform = $win->GetWindow("hand", "&nbsp;", FALSE);
-    $win->Display();
+    &nbsp;<br />
+    $backurl
+  ";
+  $msg = "<style type='text/css'>#errorbox{border:#CCCCCC 1px dashed; width:500px; margin:30px auto; line-height:25px; background:#FFF;}#errortitle{height:30px; font-weight:bold; background-color:#CCCCCC; padding-left:10px;}#errorinfo{height:100px; padding:10px 10px;}#errorlink{height:30px; text-align:center;}#indexad1{line-height:25px; width:226px; height:100px; overflow:hidden; margin-left:10px;}#indexad2{ padding:0; margin:0;}#indexad3{lint-height:25px; width:160px; height:100px; margin-left:40px;}}</style><div id='errorbox'><div id='errortitle'>系统信息</div><div id='errorinfo'>{$msg}</div></div>".GetUpdateTest();
+    echo $msg;;
 }

@@ -41,7 +41,7 @@ if($action == 'edit' || $action == 'newfile')
     }
 
     //读取文件内容
-    //$content = dede_htmlspecialchars(trim(file_get_contents($truePath.$filename)));
+    //$content = htmlspecialchars(trim(file_get_contents($truePath.$filename)));
     if($action == 'edit')
     {
         $fp = fopen($templetdird.'/'.$filename, 'r');

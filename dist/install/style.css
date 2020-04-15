@@ -200,8 +200,8 @@ input,button,select{
 	vertical-align:middle;
 }
 .btn-next{
-	width:104px;
-	height:34px;
+	width:158px;
+	height:74px;
 	border:none;
 	background:url(images/but_next.gif) no-repeat;
 	cursor:pointer;
@@ -211,8 +211,8 @@ input,button,select{
 	line-height:100px;
 }
 .btn-back{
-	width:104px;
-	height:34px;
+	width:158px;
+	height:74px;
 	border:none;
 	background:url(images/but_back.gif) no-repeat;
 	cursor:pointer;
@@ -228,7 +228,7 @@ input,button,select{
 }
 
 .over-link{
-	padding:0px 40px;
+	padding:20px 20px;
 	line-height:41px;
 	overflow:hidden;
 	clear:both;
@@ -285,3 +285,9 @@ input,button,select{
   margin-right:8px;
   float:left;
 }
+.setinfo{ float:right; padding:10px 20px 0 0}
+.setinfo a{ font-size:14px; color:#fff; text-decoration:none; margin-right:10px}
+.setinfo a:hover{ color:#F30}
+.header{ height:72px;}
+.min_box{ margin-top:14px}
+.logo{ width:300px; float:left}

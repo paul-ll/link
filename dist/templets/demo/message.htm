@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="www.adminbuy.cn" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_page.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_form.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_vip.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_msg.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_cart.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_atm.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/master.css" />
+<script type="text/javascript" src="/style/js/jquery.js"></script>
+
+<script>
+	$(document).ready(function() {
+        $('#tj').click(function(){
+			var $bt = $('#bt').val();
+			var $nr = $('#nr').val();
+			if($bt=='')
+			{
+				alert("请输入标题");
+				return false;
+				}
+			if($nr=='')
+			{
+				alert("请输入内容");
+				return false;
+				}
+			})
+    });
+</script>
+<script type="text/javascript" src="/style/js/nav.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="/style/js/png.js"></script>
+<script>DD_belatedPNG.fix('div,img,span,li,a,a:hover,dd,p,input,select')</script>
+<![endif]-->
+</head>
+
+<body>
+{dede:include filename="head.htm"/}
+<div class="child_top"><img src="/style/images/danye.jpg" height="250"></div>
+<div class="sub-title-bg">
+  <div class="sub-title"> <span class="sub-fl">回收分类</span> <span class="sub-name">{dede:field.typename/}</span>
+    <p>您的位置：{dede:field.position/}</p>
+  </div>
+</div>
+<div class="sub-box">
+  {dede:include filename="left.htm"/}
+  <div class="subpage">
+    <div class="right-con">
+      <div class="msg_now">
+        <p class="msg_title common_bg">我要留言</p>
+      </div>
+      <form action="/plus/diy.php" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="action" value="post" />
+        <input type="hidden" name="diyid" value="1" />
+        <input type="hidden" name="do" value="2" />
+        <ul class="msg_ul">
+          <li>
+            <p>留言标题<span> *</span></p>
+            <input name="bt" type="text" id="bt" class="msg_input"/>
+            <div class="info "><span class="Validform_checktip"></span><span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+          </li>
+          <li>
+            <p>咨询内容<span> *</span></p>
+            <textarea name="nr" id="nr" rows="" cols="" class="msg_textarea"></textarea>
+            <div class="info "><span class="Validform_checktip"></span><span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+          </li>
+          <input type="hidden" name="dede_fields" value="bt,text;nr,multitext" />
+		 <input type="hidden" name="dede_fieldshash" value="acc09e647f3352eab722c4c2e7132503" />
+          <li>
+            <p></p>
+            <input type="submit" id="tj" class="msg_submit common_bg" title="提   交" value="提   交"/>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+ 
+  <div class="clear"></div>
+</div>
+{dede:include filename="foot.htm"/}
+</body>
+</html>

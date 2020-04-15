@@ -1,0 +1,24 @@
+<div class="fixed"> {dede:type typeid='9'}<a href="[field:typelink /]" title="留言" class="book"></a> {/dede:type}<a href="javascript:;" title="二维码" class="codepic"></a>
+  <div> <img src="/style/images/ma.png" class="code"  /> </div>
+</div>
+<div class="top-bg">
+  <div class="top"> <a href="/" title="{dede:global.cfg_webname/}" class="logo"><img src="/style/images/logo.png" alt="{dede:global.cfg_webname/}"/></a>
+    <div class="top_tel"> <span>服务热线：</span>
+      <p>{dede:global.cfg_dh/}</p>
+    </div>
+  </div>
+</div>
+<div class="nav-bg">
+  <ul class="nav">
+    <li> <a href="/" title="网站首页">网站首页</a></li>
+   {dede:channelartlist row=8 typeid='top'}
+    <li> <a href="{dede:field name='typeurl'/}" title="{dede:field name='typename'/}" >{dede:field name='typename'/}</a>
+      <dl>
+        {dede:channel type='son' noself='yes'}
+        <dd><a href="[field:typelink/]" title="[field:typename/]">[field:typename/]</a></dd>
+        {/dede:channel}
+      </dl>
+    </li>
+    {/dede:channelartlist}
+  </ul>
+</div>

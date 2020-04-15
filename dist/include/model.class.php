@@ -13,12 +13,7 @@ class Model
 {
     var $dsql;
     var $db;
-
-    function __construct()
-    {
-        $this->Model();
-    }
-
+    
     // 析构函数
     function Model()
     {
@@ -29,11 +24,11 @@ class Model
         } else {
             $this->dsql = $this->db = isset($dsql)? $dsql : new DedeSql(FALSE);
         }
-
+            
     }
-
+    
     // 释放资源
-    function __destruct()
+    function __destruct() 
     {
         $this->dsql->Close(TRUE);
     }

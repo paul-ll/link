@@ -1,0 +1,1 @@
+<a href="[field:typelink /]" title="留言" class="book"></a>

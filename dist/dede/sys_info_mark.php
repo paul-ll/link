@@ -18,11 +18,7 @@ if($cfg_photo_support=='')
 }
 $ImageWaterConfigFile = DEDEDATA."/mark/inc_photowatermark_config.php";
 if(empty($action)) $action = "";
-$allow_mark_types = array(
-	'image/gif',
-	'image/xpng',
-	'image/png',
-);
+
 if($action=="save")
 {
     $vars = array('photo_markup','photo_markdown','photo_marktype','photo_wwidth','photo_wheight','photo_waterpos','photo_watertext','photo_fontsize','photo_fontcolor','photo_marktrans','photo_diaphaneity');
@@ -35,13 +31,12 @@ if($action=="save")
     if(is_uploaded_file($newimg))
     {
         $imgfile_type = strtolower(trim($newimg_type));
-
-        if(!in_array($imgfile_type, $allow_mark_types))
+        if(!in_array($imgfile_type, $cfg_photo_typenames))
         {
-            ShowMsg("上传的图片格式错误，请使用 gif、png格式的其中一种！","-1");
+            ShowMsg("上传的图片格式错误，请使用 {$cfg_photo_support}格式的其中一种！","-1");
             exit();
         }
-        if($imgfile_type=='image/xpng' || $imgfile_type=='image/png')
+        if($imgfile_type=='image/xpng')
         {
             $shortname = ".png";
         }
@@ -51,8 +46,7 @@ if($action=="save")
         }
         else
         {
-            ShowMsg("水印图片仅支持gif、png格式的其中一种！","-1");
-            exit;
+            $shortname = ".gif";
         }
         $photo_markimg = 'mark'.$shortname;
         @move_uploaded_file($newimg,DEDEDATA."/mark/".$photo_markimg);

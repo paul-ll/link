@@ -248,7 +248,7 @@ else if($dopost=='getlist')
         $allFileList .= "<div class='verline'>";
         $allFileList .= "文件临时存放目录：../data/<input type='text' name='tmpdir' style='width:200px' value='$tmpdir' /><br />\r\n";
         $allFileList .= "<input type='checkbox' name='skipnodir' value='1'  checked='checked' /> 跳过系统中没有的文件夹(通常是可选模块的补丁)</div>\r\n";
-        $allFileList .= "<div style='line-height:36px;background:#F8FEDA'>&nbsp;\r\n";
+        $allFileList .= "<div style='line-height:36px;'>&nbsp;\r\n";
         $allFileList .= "<input type='submit' name='sb1' value=' 下载并应用这些补丁 ' class='np coolbg' style='cursor:pointer' />\r\n";
         $allFileList .="</form></div>";
     }

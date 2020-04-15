@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="www.adminbuy.cn" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_page.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_form.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_vip.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_msg.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_cart.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/child_atm.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/master.css" />
+<script type="text/javascript" src="/style/js/jquery.js"></script>
+<script type="text/javascript" src="/style/js/nav.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="/style/js/png.js"></script>
+<script>DD_belatedPNG.fix('div,img,span,li,a,a:hover,dd,p,input,select')</script>
+<![endif]-->
+</head>
+
+<body>
+{dede:include filename="head.htm"/}
+<div class="child_top"><img src="/style/images/danye.jpg" height="250"></div>
+<div class="sub-title-bg">
+  <div class="sub-title"> <span class="sub-fl">回收分类</span> <span class="sub-name">{dede:field.typename/}</span>
+    <p>您的位置：{dede:field.position/}</p>
+  </div>
+</div>
+<div class="sub-box">
+  {dede:include filename="left.htm"/}
+  <div class="subpage">
+    <div class="view">
+      <h1>{dede:field.title/}</h1>
+      <p class="date">{dede:field.pubdate function='strftime("%Y-%m-%d",@me)'/} 点击量：<span id="clicksArea"><script src="/plus/count.php?view=yes&aid={dede:field.id/}&mid={dede:field.mid/}" type='text/javascript' language="javascript"></script></span></p>
+      <div class="view_imgs"> <span id="prev" class="btn prev"></span> <span id="next" class="btn next"></span> <span id="prevTop" class="btn prev"></span> <span id="nextTop" class="btn next"></span>
+        <div id="picBox" class="picBox">
+          <ul class="cf">
+            {dede:productimagelist} 
+            <li><img width="555" height="416" src="[field:imgsrc/]" alt="123" /></li>
+           {/dede:productimagelist}
+          </ul>
+        </div>
+        <div id="listBox" class="listBox">
+          <ul class="cf">
+         
+            {dede:productimagelist} 
+            <li ><img width="95" height="71" src="[field:imgsrc/]" alt="123" /></li>
+            {/dede:productimagelist}
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript" src="/style/js/view_img.js"></script>
+      <div class="page">
+        <p>上一页：<a>上一条：抱歉暂无数据</a></p>
+        <p>下一页：<a href="/index.php?m=cn&c=product&a=view&id=210" title="钢铁">钢铁</a></p>
+        <a href="javascript:void(0);" title="返回" class="back" onClick="javascript:history.back(-1);">返回</a> </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+{dede:include filename="foot.htm"/}
+</body>
+</html>

@@ -5,17 +5,7 @@ include($moduleCacheFile);
 $modules = split(',',$selModule);
 $insLockfile = dirname(__FILE__).'/install_lock.txt';
 
-if(file_exists($insLockfile))
-{
-	echo <<<EOT
-<link href="style.css" rel="stylesheet" type="text/css" />
-<div class="over-link fs-14" style="padding:0px;">
-    <a href="../index.php?upcache=1" target='_top'>访问网站首页</a>
-    <a href="../dede" target='_top'>登录网站后台</a>
-</div>
-EOT;
-	exit();
-} 
+if(file_exists($insLockfile)) exit("");
 
 $module_autos=array(
     '606c658db048ea7328ffe1c7ae2a732f'=>array(
