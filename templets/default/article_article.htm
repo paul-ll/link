@@ -1,0 +1,67 @@
+<html lang="zh-cn"><head>
+<title>{dede:field.title/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="”Cache-Control”" content="”no-transform”">
+<meta http-equiv="”Cache-Control”" content="”no-siteapp”">
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/style.css">
+<script src="{dede:global.cfg_templets_skin/}/js/jquery-1.4.2.min.js"></script>
+<!--[if lt IE 9]><script src="{dede:global.cfg_templets_skin/}/js/html5shiv.js"></script>
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/ie.css"> 
+<![endif]-->
+</head>     
+<body>
+<!--==============================header=================================-->
+ {dede:include filename="head.htm"/}
+<!--==============================banner=================================-->
+<section class="banner text_c">
+<img src="{dede:global.cfg_templets_skin/}/images/new.jpg" data-thumb="{dede:global.cfg_templets_skin/}/images/new_medium.jpg" data-mobile="{dede:global.cfg_templets_skin/}/images/new_mobile.jpg" alt="关于天龙"></section>
+<!--==============================Crumbs=================================-->
+<section class="Crumbs p_b5 p_t5 clearfix">
+<div class="container text_r">{dede:field name='position'/}</div>
+</section>
+<!--==============================content================================-->
+<section class="m_t50 m_b20">
+<div class="container">
+<div class="row">
+<article class="grid_8 m_b40">
+<div class="content">
+<h1 class="f32 black">{dede:field.title/}</h1>
+<div class="info_text m_t20 p_b10 b_m_line_ddd"><span>来源：{dede:field.source/}</span><span>作者：{dede:field.writer/}</span><span>发布时间：{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}</span></div>
+<div class="news_text f16 m_t20">
+<p>&nbsp;{dede:field.body/}</p></div>
+
+<div class="tag m_t50 lh_22 p_b5 b_m_line_ddd"></div>
+</div>
+<div class="row m_t10">
+<div class="grid_4 m_b10">{dede:prenext get='pre'/}</div>
+<div class="grid_4 m_b10">{dede:prenext get='next'/}</div>
+</div>
+</article> 
+<aside class="grid_4 sidebar_news m_b30">
+<h3 class="black m_b20">推荐阅读</h3>
+     {dede:arclist row='1'  typeid='12'  titlelen='58' flag='c'}
+<div class="p_b10 b_m_line_ddd clearfix">
+<a href="/news/2.html" class="img_wrap2 l"><img src="[field:litpic/]" alt="[field:title/]"></a>
+<div class="img_wrap2_p l p_t5">
+<h4 class="f14 m_b5 black"><a href="[field:arcurl/]">[field:title/]</a></h4>
+<p class="f13 lh_18">[field:description function="cn_substr(@me,100)"/]......</p>
+</div>
+     {/dede:arclist}
+</div>
+<ul class="list1 m_t15">
+   {dede:arclist row='100'  typeid='12'  titlelen='58'  flag='a'}
+<li><a href="[field:arcurl/]">[field:title/]</a></li>
+ {/dede:arclist}
+
+</ul>
+
+</aside>
+</div>
+</div>
+</section>
+<!--==============================footer================================-->
+{dede:include filename="foot.htm"/}
+</body></html>

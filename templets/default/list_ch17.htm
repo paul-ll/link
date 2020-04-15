@@ -1,0 +1,58 @@
+<html lang="zh-cn">
+<head>
+<title>{dede:field.seotitle /}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="”Cache-Control”" content="”no-transform”">
+<meta http-equiv="”Cache-Control”" content="”no-siteapp”">
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/style.css">
+<script src="{dede:global.cfg_templets_skin/}/js/jquery-1.4.2.min.js"></script>
+<!--[if lt IE 9]><script src="{dede:global.cfg_templets_skin/}/js/html5shiv.js"></script>
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/ie.css"> 
+<![endif]-->
+</head>
+<body>
+<!--==============================header=================================--> 
+{dede:include filename="head.htm"/} 
+<!--==============================banner=================================-->
+<section class="banner text_c"> <img src="{dede:global.cfg_templets_skin/}/images/service.jpg" data-thumb="{dede:global.cfg_templets_skin/}/images/service_medium.jpg" data-mobile="{dede:global.cfg_templets_skin/}/images/service_mobile.jpg" ></section>
+<!--==============================Crumbs=================================-->
+<section class="Crumbs p_b5 p_t5 clearfix">
+  <div class="container text_r">当前位置：{dede:field name='position'/}</div>
+</section>
+<!--==============================content=================================-->
+<section class="m_t40 m_b30">
+  <div class="service_t" id="menu_m">
+    <article class="container clearfix">
+      <h3>服务项目</h3>
+      <p>Service Items</p>
+      <i class="r"></i> </article>
+  </div>
+  <div class="container clearfix">
+    <div class="row m_t30 pageshow">
+      <div id="stuck_grid_3">
+        <div class="grid_3" id="menu_list">
+          <ul class="protitie_list f16 lh_16 m_b30">
+            {dede:channel  type='son' noself='yes'}
+            <li> <a title="[field:typename/]" href="[field:typelink/]">[field:typename/]</a></li>
+            {/dede:channel}
+          </ul>
+        </div>
+      </div>
+      <div class="grid_9 pro-list">
+        <div class="row" id="pageshow"> {dede:list pagesize='1000'  titlelen='40' }
+          <div class="pro-li"> <a href="[field:arcurl/]">
+            <div class="pro-list-img"><img src="[field:litpic/]"></div>
+            <h5 class=" f16 lh_36 c333 text_c">[field:title/]</h5>
+            </a> </div>
+          {/dede:list} </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--==============================footer================================--> 
+{dede:include filename="foot.htm"/}
+</body>
+</html>
