@@ -13,4 +13,4 @@ docker stop link-container
 docker rm link-container
 echo "启动新容器"
 docker container run -p 233:233 -d --name link-container link:1.0
-docker run --name  myphp7 -v /www/wwwroot/nginx/html  -d php:7.1.30-fpm
+# docker run --name  myphp7 -v /www/wwwroot/nginx/html  -d php:7.1.30-fpm
